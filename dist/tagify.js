@@ -53,7 +53,8 @@ Tagify.prototype = {
         whitelist           : [],         // is this list has any items, then only allow tags from this list
         blacklist           : [],         // a list of non-allowed tags
         maxTags             : Infinity,   // maximum number of tags
-        suggestionsMinChars : 2           // minimum characters to input to see sugegstions list
+        suggestionsMinChars : 2,           // minimum characters to input to see sugegstions list
+        joint               : ","
     },
 
     /**
@@ -428,7 +429,7 @@ Tagify.prototype = {
      * update the origianl (hidden) input field's value
      */
     update : function(){
-        this.DOM.originalInput.value = this.value.join(',');
+        this.DOM.originalInput.value = this.value.join(this.settings.joint);
     }
 }
 
